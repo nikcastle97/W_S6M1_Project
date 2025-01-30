@@ -37,22 +37,25 @@ STEP 4:
 */
 
 import React from 'react'; /* STEP 0 */
+import { useState } from 'react';
 
 export default function Spinner() {
 /* STEP 1 */
+const [spinOn, setSpin] = useState(true);
 
   const toggleSpinner = () => {
   /* STEP 4 */
+    setSpin(!spinOn);
   };
 
   return (
     <div className='widget-spinner container'>
       <h2>Spinner</h2>
       {
-        true && <div id='spinner' className='spinner'>--+--</div> /* STEP 2 */
+        spinOn && <div id='spinner' className='spinner'>--+--</div> /* STEP 2 */
       }
       <button id='toggleSpinner' onClick={toggleSpinner}>
-        Hide Spinner {/* STEP 3 */}
+        {spinOn === true ? 'Hide Spinner' : 'Show Spinner'} {/* STEP 3 */}
       </button>
     </div>
   );
